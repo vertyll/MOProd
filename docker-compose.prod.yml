@@ -8,7 +8,6 @@ services:
     image: ${APP_NAME}-backend:${BACKEND_TAG}
     container_name: moprod-backend
     restart: unless-stopped
-    tty: true
     environment:
       SERVICE_NAME: ${APP_NAME}-backend
       SERVICE_TAGS: prod
@@ -32,7 +31,6 @@ services:
     image: postgres:${POSTGRES_TAG}
     container_name: moprod-postgres
     restart: unless-stopped
-    tty: true
     ports:
       - "${DB_PORT}:5432"
     environment:
@@ -54,10 +52,12 @@ services:
         FRONTEND_TAG: ${FRONTEND_TAG}
     image: ${APP_NAME}-frontend:${FRONTEND_TAG}
     container_name: moprod-frontend
+    restart: unless-stopped
     ports:
       - "${FRONTEND_PORT}:3000"
     environment:
       NODE_ENV: production
+    working_dir: /usr/src/app
     networks:
       - moprod-network
     env_file:
