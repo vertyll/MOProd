@@ -11,6 +11,7 @@ services:
     environment:
       SERVICE_NAME: ${APP_NAME}-backend
       SERVICE_TAGS: prod
+      NODE_ENV: production
       DB_CONNECTION: pgsql
       DB_HOST: moprod-postgres
       DB_PORT: ${DB_PORT}
