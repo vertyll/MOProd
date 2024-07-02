@@ -35,7 +35,7 @@ services:
     image: postgres:${POSTGRES_TAG}
     container_name: moprod-postgres
     restart: unless-stopped
-    tty: true
+    tty: false
     ports:
       - "${DB_PORT}:5432"
     environment:
@@ -57,10 +57,13 @@ services:
         FRONTEND_TAG: ${FRONTEND_TAG}
     image: ${APP_NAME}-frontend:${FRONTEND_TAG}
     container_name: moprod-frontend
+    restart: unless-stopped
+    tty: true
     ports:
       - "${FRONTEND_PORT}:3000"
     environment:
       NODE_ENV: development
+    working_dir: /usr/src/app
     volumes:
       - ./apps/frontend:/usr/src/app
       - /usr/src/app/node_modules
