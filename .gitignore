@@ -15,6 +15,8 @@ Thumbs.db
 # Docker
 docker-compose.override.yml
 docker-compose.*.yml
+!docker-compose.prod.yml
+!docker-compose.dev.yml
 
 # Env
 .env
@@ -22,7 +24,8 @@ docker-compose.*.yml
 # Ignore contents of docker folder, but keep the folder itself and specific files
 apps/backend/docker/*
 !apps/backend/docker/.gitkeep
-!apps/backend/docker/entrypoint.sh
+!apps/backend/docker/entrypoint.dev.sh
+!apps/backend/docker/entrypoint.prod.sh
 !apps/backend/docker/wait-for-it.sh
 
 # Ignore contents of data/postgres/data folder, but keep the folder itself
