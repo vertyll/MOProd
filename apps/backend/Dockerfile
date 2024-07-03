@@ -33,15 +33,8 @@ RUN case "$NODE_ENV" in \
 COPY docker/wait-for-it.sh /usr/local/bin/wait-for-it.sh
 RUN chmod +x /usr/local/bin/wait-for-it.sh
 
-# Copy entrypoint script based on environment
-RUN case "$NODE_ENV" in \
-      "development") \
-        cp docker/entrypoint.dev.sh /usr/local/bin/entrypoint.sh ;; \
-      "production") \
-        cp docker/entrypoint.prod.sh /usr/local/bin/entrypoint.sh ;; \
-      *) \
-        echo "Unknown NODE_ENV: $NODE_ENV" && exit 1 ;; \
-    esac
+# Copy the unified entrypoint script
+COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
 # Expose the port the application will run on
@@ -50,5 +43,5 @@ EXPOSE 3000
 # Add healthcheck
 HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 CMD curl --fail http://localhost:3000 || exit 1
 
-# Start the application using the entrypoint script based on environment
-ENTRYPOINT ["sh", "-c", "case \"$NODE_ENV\" in development) /usr/local/bin/entrypoint.dev.sh ;; production) /usr/local/bin/entrypoint.prod.sh ;; *) echo \"Unknown NODE_ENV: $NODE_ENV\" && exit 1 ;; esac"]
+# Start the application using the entrypoint script
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
