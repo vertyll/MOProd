@@ -34,9 +34,15 @@ COPY docker/wait-for-it.sh /usr/local/bin/wait-for-it.sh
 RUN chmod +x /usr/local/bin/wait-for-it.sh
 
 # Copy entrypoint script based on environment
-COPY docker/entrypoint.dev.sh /usr/local/bin/entrypoint.dev.sh
-COPY docker/entrypoint.prod.sh /usr/local/bin/entrypoint.prod.sh
-RUN chmod +x /usr/local/bin/entrypoint.dev.sh /usr/local/bin/entrypoint.prod.sh
+RUN case "$NODE_ENV" in \
+      "development") \
+        cp docker/entrypoint.dev.sh /usr/local/bin/entrypoint.sh ;; \
+      "production") \
+        cp docker/entrypoint.prod.sh /usr/local/bin/entrypoint.sh ;; \
+      *) \
+        echo "Unknown NODE_ENV: $NODE_ENV" && exit 1 ;; \
+    esac
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 # Expose the port the application will run on
 EXPOSE 3000
