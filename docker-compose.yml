@@ -5,12 +5,15 @@ services:
       dockerfile: Dockerfile
       args:
         BACKEND_TAG: ${BACKEND_TAG}
+        NODE_ENV: ${NODE_ENV}
+        DB_PORT: ${DB_PORT}
+        DB_HOST: moprod-postgres
     image: ${APP_NAME}-backend:${BACKEND_TAG}
     container_name: moprod-backend
     restart: unless-stopped
     environment:
       SERVICE_NAME: ${APP_NAME}-backend
-      SERVICE_TAGS: prod
+      SERVICE_TAGS: dev
       NODE_ENV: ${NODE_ENV}
       DB_CONNECTION: pgsql
       DB_HOST: moprod-postgres
@@ -24,7 +27,7 @@ services:
     networks:
       - moprod-network
     env_file:
-      - .env.prod
+      - .env
     depends_on:
       - moprod-postgres
 
@@ -43,7 +46,7 @@ services:
     networks:
       - moprod-network
     env_file:
-      - .env.prod
+      - .env
 
   moprod-frontend:
     build:
@@ -51,6 +54,7 @@ services:
       dockerfile: Dockerfile
       args:
         FRONTEND_TAG: ${FRONTEND_TAG}
+        NODE_ENV: ${NODE_ENV}
     image: ${APP_NAME}-frontend:${FRONTEND_TAG}
     container_name: moprod-frontend
     restart: unless-stopped
@@ -62,7 +66,7 @@ services:
     networks:
       - moprod-network
     env_file:
-      - .env.prod
+      - .env
 
 networks:
   moprod-network:

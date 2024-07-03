@@ -8,6 +8,11 @@ WORKDIR /usr/src/app
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
+# Argument to set the NODE_ENV
+ARG NODE_ENV
+ENV NODE_ENV=$NODE_ENV
+RUN echo "NODE_ENV: $NODE_ENV"
+
 # Install dependencies based on environment
 RUN case "$NODE_ENV" in \
       "development") \

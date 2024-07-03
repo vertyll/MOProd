@@ -8,6 +8,11 @@ WORKDIR /app
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
+# Argument to set the NODE_ENV
+ARG NODE_ENV
+ENV NODE_ENV=$NODE_ENV
+RUN echo "NODE_ENV: $NODE_ENV"
+
 # Install dependencies based on environment
 RUN case "$NODE_ENV" in \
       "development") \
@@ -44,6 +49,12 @@ EXPOSE 3000
 
 # Add healthcheck
 HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 CMD curl --fail http://localhost:3000 || exit 1
+
+# Argumnet to set the DB_PORT and DB_HOST
+ARG DB_PORT
+ARG DB_HOST
+ENV DB_PORT=$DB_PORT
+ENV DB_HOST=$DB_HOST
 
 # Start the application using the entrypoint script
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
