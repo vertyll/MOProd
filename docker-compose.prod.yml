@@ -11,7 +11,7 @@ services:
     environment:
       SERVICE_NAME: ${APP_NAME}-backend
       SERVICE_TAGS: prod
-      NODE_ENV: production
+      NODE_ENV: ${NODE_ENV}
       DB_CONNECTION: pgsql
       DB_HOST: moprod-postgres
       DB_PORT: ${DB_PORT}
@@ -57,7 +57,7 @@ services:
     ports:
       - "${FRONTEND_PORT}:3000"
     environment:
-      NODE_ENV: production
+      NODE_ENV: ${NODE_ENV}
     working_dir: /usr/src/app
     networks:
       - moprod-network
