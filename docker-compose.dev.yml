@@ -28,7 +28,7 @@ services:
     networks:
       - moprod-network
     env_file:
-      - .env
+      - .env.dev
     depends_on:
       - moprod-postgres
 
@@ -48,7 +48,7 @@ services:
     networks:
       - moprod-network
     env_file:
-      - .env
+      - .env.dev
 
   moprod-frontend:
     build:
@@ -71,7 +71,7 @@ services:
     networks:
       - moprod-network
     env_file:
-      - .env
+      - .env.dev
 
 networks:
   moprod-network:
