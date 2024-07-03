@@ -12,7 +12,7 @@ services:
     environment:
       SERVICE_NAME: ${APP_NAME}-backend
       SERVICE_TAGS: dev
-      NODE_ENV: development
+      NODE_ENV: ${NODE_ENV}
       DB_CONNECTION: pgsql
       DB_HOST: moprod-postgres
       DB_PORT: ${DB_PORT}
@@ -63,7 +63,7 @@ services:
     ports:
       - "${FRONTEND_PORT}:3000"
     environment:
-      NODE_ENV: development
+      NODE_ENV: ${NODE_ENV}
     working_dir: /usr/src/app
     volumes:
       - ./apps/frontend:/usr/src/app
