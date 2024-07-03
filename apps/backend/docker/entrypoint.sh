@@ -11,5 +11,16 @@ else
   echo "No migration script found, skipping migrations"
 fi
 
-# Start Nest.js application in development mode
-npm run start:dev
+# Start Nest.js application based on the NODE_ENV
+case "$NODE_ENV" in
+  "development")
+    npm run start:dev
+    ;;
+  "production")
+    npm run start:prod
+    ;;
+  *)
+    echo "Unknown NODE_ENV: $NODE_ENV"
+    exit 1
+    ;;
+esac
