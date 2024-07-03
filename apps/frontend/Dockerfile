@@ -25,8 +25,10 @@ COPY . .
 RUN case "$NODE_ENV" in \
       "production") \
         npm run build ;; \
-      "development" | *) \
-        echo "Skipping build for $NODE_ENV" ;; \
+      "development") \
+        echo "Skipping build for development environment" ;; \
+      *) \
+        echo "Unknown NODE_ENV: $NODE_ENV" && exit 1 ;; \
     esac
 
 # Expose the application port
