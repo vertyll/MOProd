@@ -2,7 +2,7 @@ services:
   moprod-backend:
     build:
       context: ./apps/backend
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
       args:
         BACKEND_TAG: ${BACKEND_TAG}
     image: ${APP_NAME}-backend:${BACKEND_TAG}
@@ -48,7 +48,7 @@ services:
   moprod-frontend:
     build:
       context: ./apps/frontend
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
       args:
         FRONTEND_TAG: ${FRONTEND_TAG}
     image: ${APP_NAME}-frontend:${FRONTEND_TAG}
