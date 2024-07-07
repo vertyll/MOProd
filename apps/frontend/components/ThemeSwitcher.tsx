@@ -1,3 +1,4 @@
+"use client";
 import React from 'react'
 import { BiMoon, BiSun } from 'react-icons/bi';
 
