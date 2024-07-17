@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "private": true,
   "files": [
-    "tailwind-base.ts"
+    "tailwind-base.ts",
+    "css/tailwind.css"
   ],
   "devDependencies": {
     "tailwindcss": "^3.4.6"
