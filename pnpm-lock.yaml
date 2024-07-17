@@ -7,6 +7,9 @@ settings:
 importers:
   .:
     devDependencies:
+      "@repo/typescript-config":
+        specifier: workspace:*
+        version: link:packages/config/core/typescript
       eslint:
         specifier: 8.57.0
         version: 8.57.0
@@ -19,6 +22,8 @@ importers:
       typescript:
         specifier: ^5.5.3
         version: 5.5.3
+
+  packages/config/core/typescript: {}
 
 packages:
   "@eslint-community/eslint-utils@4.4.0":
