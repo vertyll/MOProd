@@ -3,5 +3,10 @@
   "description": "Tailwind configurations for monorepo projects.",
   "version": "0.0.0",
   "private": true,
-  "files": []
+  "files": [
+    "tailwind-base.ts"
+  ],
+  "devDependencies": {
+    "tailwindcss": "^3.4.6"
+  }
 }
