@@ -1,0 +1,7 @@
+{
+  "name": "@repo/eslint-config",
+  "description": "ESLint configurations for monorepo projects.",
+  "version": "0.0.0",
+  "private": true,
+  "files": []
+}
