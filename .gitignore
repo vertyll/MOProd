@@ -20,5 +20,8 @@ dist
 # Turbo
 .turbo
 
+# Next
+.next
+
 # GitHub
 .github
