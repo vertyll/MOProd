@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/eslintrc.json",
+  "extends": ["./eslint-base.json"],
+  "overrides": [
+    {
+      "files": ["*.test.{js,jsx,mjs,cjs,ts,tsx}"],
+      "extends": ["plugin:jest/recommended", "plugin:testing-library/react"],
+      "plugins": ["jest", "testing-library"]
+    },
+    {
+      "files": ["*.spec.{js,mjs,cjs,ts}"],
+      "extends": ["plugin:cypress/recommended"],
+      "plugins": ["cypress"]
+    }
+  ]
+}

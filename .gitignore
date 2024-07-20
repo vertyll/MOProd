@@ -1,32 +1,27 @@
-# Node.js
-node_modules/
+# Code Editors
+.vscode
+.idea
 
-# Logs
-logs/
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# OS generated files
-.DS_Store
+# System
 Thumbs.db
+.DS_Store
+._*
 
-# Docker
-!docker-compose.override.yml
-docker-compose.*.yml
+# Project
+node_modules
+build
+dist
 
-# Ignore all .env files
-.env
-.env.*
-!.env.example
+# Env
+.env*
+.env.production*
+.env.development*
 
-# Ignore contents of docker folder, but keep the folder itself and specific files
-apps/backend/docker/*
-!apps/backend/docker/.gitkeep
-!apps/backend/docker/entrypoint.sh
-!apps/backend/docker/wait-for-it.sh
+# Turbo
+.turbo
 
-# Ignore contents of data/postgres/data folder, but keep the folder itself
-data/postgres/*
-!data/postgres/.gitkeep
+# Next
+.next
+
+# GitHub
+.github

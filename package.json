@@ -1,20 +1,31 @@
 {
-  "devDependencies": {
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "commitizen": "^4.3.0",
-    "cz-conventional-changelog": "^3.3.0",
-    "husky": "^9.0.11",
-    "prettier": "^3.3.2"
+  "name": "moprod",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vertyll/MOProd.git"
   },
   "scripts": {
-    "prepare": "husky",
-    "format": "npx prettier --write .",
-    "commit": "cz"
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "test:watch": "turbo test:watch",
+    "format": "prettier --write ."
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "eslint": "8.57.0",
+    "prettier": "^3.3.3",
+    "turbo": "^2.0.7",
+    "typescript": "^5.5.3"
+  },
+  "packageManager": "pnpm@9.5.0",
+  "engines": {
+    "node": ">=20.15.0",
+    "pnpm": ">=9.5.0"
   }
 }
