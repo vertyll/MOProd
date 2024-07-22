@@ -25,3 +25,7 @@ dist
 
 # GitHub
 .github
+
+# Ignore contents of data/postgres/data folder, but keep the folder itself
+data/postgres/*
+!data/postgres/.gitkeep

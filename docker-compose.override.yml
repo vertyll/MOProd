@@ -1,0 +1,12 @@
+services:
+  backend:
+    volumes:
+      - ./apps/backend:/app
+      - /app/node_modules
+    tty: true
+
+  frontend:
+    volumes:
+      - ./apps/frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    tty: true
