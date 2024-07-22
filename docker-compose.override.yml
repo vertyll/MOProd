@@ -1,12 +1,9 @@
 services:
-  backend:
+  app:
     volumes:
-      - ./apps/backend:/app
+      - .:/app
       - /app/node_modules
+      - ./apps/backend:/app/apps/backend
+      - ./apps/frontend:/app/apps/frontend
     tty: true
-
-  frontend:
-    volumes:
-      - ./apps/frontend:/usr/src/app
-      - /usr/src/app/node_modules
-    tty: true
+    command: pnpm run dev

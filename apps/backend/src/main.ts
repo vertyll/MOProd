@@ -3,5 +3,5 @@ import { AppModule } from "@/modules/app.module";
 
 (async () => {
   const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
+  await app.listen(3200);
 })();
