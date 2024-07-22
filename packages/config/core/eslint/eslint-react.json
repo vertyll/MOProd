@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/eslintrc.json",
+  "env": { "browser": true },
+  "extends": [
+    "./eslint-base.json",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "plugins": ["react", "react-hooks", "jsx-a11y"],
+  "settings": {
+    "react": { "version": "detect" }
+  }
+}

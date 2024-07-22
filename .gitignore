@@ -1,0 +1,31 @@
+# Code Editors
+.vscode
+.idea
+
+# System
+Thumbs.db
+.DS_Store
+._*
+
+# Project
+node_modules
+build
+dist
+
+# Env
+.env*
+.env.production*
+.env.development*
+
+# Turbo
+.turbo
+
+# Next
+.next
+
+# GitHub
+.github
+
+# Ignore contents of data/postgres/data folder, but keep the folder itself
+data/postgres/*
+!data/postgres/.gitkeep
