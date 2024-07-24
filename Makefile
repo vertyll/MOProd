@@ -71,30 +71,6 @@ ps-dev:
 ps-prod:
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) ps
 
-# Access the running backend container for development
-exec-backend-dev:
-	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) -f $(COMPOSE_FILE_OVERRIDE) exec ${APP_NAME}-backend /bin/sh
-
-# Access the running backend container for production
-exec-backend-prod:
-	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) exec ${APP_NAME}-backend /bin/sh
-
-# Access the running frontend container for development
-exec-frontend-dev:
-	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) -f $(COMPOSE_FILE_OVERRIDE) exec ${APP_NAME}-frontend /bin/sh
-
-# Access the running frontend container for production
-exec-frontend-prod:
-	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) exec ${APP_NAME}-frontend /bin/sh
-
-# Access the running postgres container for development
-exec-postgres-dev:
-	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) -f $(COMPOSE_FILE_OVERRIDE) exec ${APP_NAME}-postgres /bin/sh
-
-# Access the running postgres container for production
-exec-postgres-prod:
-	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) exec ${APP_NAME}-postgres /bin/sh
-
 # Prune Docker system
 system-prune:
 	docker system prune -f
